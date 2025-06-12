@@ -64,10 +64,12 @@ class r10k::webhook (
     deploy_modules  => true,
     generate_types  => true,
   },
+  R10k::Webhook::Config::Mappings $mappings = {},
   R10k::Webhook::Config $config              = {
     server  => $server,
     chatops => $chatops,
     r10k    => $r10k,
+    mappings => $mappings,
   },
 ) inherits r10k::params {
   contain r10k::webhook::package
